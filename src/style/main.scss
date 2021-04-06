@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Galdeano&display=swap');
+@import './navbar.scss';
+@import './form.scss';
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Galdeano', sans-serif;
+    background-color: rgb(131, 130, 128);
+}
