@@ -20,4 +20,6 @@ const config = {
     }
   }
   initFirebase();
+
+  var database = firebase.database()
   export { firebase }

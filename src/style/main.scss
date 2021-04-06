@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Galdeano&display=swap');
 @import './navbar.scss';
 @import './form.scss';
+@import './table-homes.scss';
 
 
 
@@ -14,4 +15,21 @@
 body {
     font-family: 'Galdeano', sans-serif;
     background-color: rgb(131, 130, 128);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.search-box {
+ position: relative;
+ top: 100px;
+ left: 0;
+}
+.list-box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    transform: translate(-45%,20vw);
 }

@@ -120,3 +120,19 @@
     }
   }
 }
+button {
+  background-color: black;
+  color: #fff;
+  font-size: larger;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -35px;
+  right: 0;
+  width: 175px;
+  height: 50px;
+  border-radius: 60%;
+  &:hover {
+    background-color: blue;
+    color : white;
+  }
+}
