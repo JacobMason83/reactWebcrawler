@@ -24,20 +24,10 @@ export default function NavBar() {
                 <div className="left-side">
                         <img src={logo} alt="zwillow"/>
                 </div>
-                <div className="right-side" id='hamburger'>
-                    <ul className='nav-link-wrapper'>
-                        <li className="nav-links">Home</li>
-                        {/* <li className="nav-links">Search</li> */}
-                        <li className="nav-links">List</li>
-                    </ul>
-                </div>        
+             
+                        
                 </div>      
-                 
-                    
-                      
-                    
-           
-        </nav>
+                  </nav>
     </Fragment>
    )
 }

@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
+
 
 
 export default function Form(props) {
-   const [url, setUrl] = useState('')
+   const [value, setValue] = useState('')
    const [home, homes] = useState([])
-   const onSubmit = (e) => {
-    // e.preventDefault();
-    //    console.log('i submitted')
-    //     axios
-    //     .get()
 
-   }
-//    useEffect(() => {
-      
-//        setUrl('')
-//    },[])
    return(
-    <form className='form-container' onSubmit={onSubmit}>
+    <form className='form-container'>
         <input 
         type="text"
         placeholder='Search.....' 
-        value={url}
+        value={value}
         onChange={(e) => setUrl(e.target.value)}   
         />
         <div className="search"></div>
-        <button>Save Home</button>
+        <button className='search-btn'>Save Home</button>
     </form>
    )
 }

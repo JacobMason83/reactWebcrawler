@@ -1,30 +1,32 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react'
+import firebase from '../../actions/firebaseconfig'
+import {db} from '../../actions/firebaseconfig'
 
 
-export default function ListMap() {
+export default function ListMap (props) {
+  const [list, setList] = useState([])
 
-   return(
+
+  useEffect(() => {
+    
+    setList(props.data)
+  })
+  return (
     <Fragment>
-    <tbody>
-    <tr>
-     <th>Image</th>
-    <th>Type</th> 
-    <th>Bedrooms</th>
-    <th>Bathrooms</th>
-    <th>SqareFootage</th>
-    <th>Year Built</th>
-    <th>Distance to Work</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-    <td>50</td>
-    </tr>
-    </tbody>
+     {list.map(item => {
+       return (
+     <tr key={item.property_id}>
+      <td><img src={item.primary_photo.href}  alt="photo"/></td>
+      <td>{item.description.type}</td>
+      <td>{item.description.beds}</td>
+      <td>{item.description.baths}</td>
+      <td>{item.description.sqft}</td>
+      <td>{item.description.year_built}</td>
+      <td className='delete-btn' >Delete</td>
+      </tr>
+
+       )
+     })}
     </Fragment>
-   )
+  )
 }
