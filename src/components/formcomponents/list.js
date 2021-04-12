@@ -5,9 +5,30 @@ import { db } from '../../actions/firebaseconfig'
 
 
 
-export default function HomesList() {
+export default function HomesList(props) {
    const [data, setData] = useState([])
-
+  
+   const searchValue = props.value || ''
+   const filterData = (data) => {
+     if(searchValue === undefined){
+       return data
+     }
+     else if (searchValue !== null && searchValue === 'single family'){
+       return data.filter(item => searchValue === item.searchValue)
+     }else if (searchValue.includes('beds')) {
+       if(searchValue.includes('5')){
+         return data.filter(item => item.description.beds >= 5)
+       } else if(searchValue.includes('4')) {
+        return data.filter(item => item.description.beds === 4)
+       } else if(searchValue.includes('3')){
+         return data.filter(item => item.description.beds === 3)
+       } else {
+         return data.filter(item => item.description.beds <= 2)
+       }
+     } else {
+       return data 
+     }
+   }
 
   
    useEffect(() => {
@@ -22,7 +43,7 @@ export default function HomesList() {
   <Fragment>
  
   
-   <table width="100%" className="table-homes" cellPadding={0} cellSpacing={0} >
+   <table width="100%" className="table-homes" cellPadding={0} cellSpacing='5' >
   <tbody>
    
     <tr>
@@ -34,7 +55,7 @@ export default function HomesList() {
     <th>Year Built</th>
     <th>Delete</th>
   </tr>
-      <ListMap data={data} />
+      <ListMap data={filterData(data)} />
       
 
   
